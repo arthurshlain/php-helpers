@@ -16,7 +16,7 @@ class FileHelper {
      *
      * @return string
      */
-	  public static function humanFileSize($size, string $unit = null): string {
+    public static function humanFileSize($size, string $unit = null): string {
         if (( ! $unit && $size >= 1 << 30) || $unit === "GB") {
             return number_format($size / (1 << 30), 2)."&nbsp;ГБ" . self::$file_units['GB'];
         }
