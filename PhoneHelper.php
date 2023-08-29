@@ -7,14 +7,14 @@ use libphonenumber\PhoneNumberUtil;
 
 class PhoneHelper {
 
-    public static function isValidPhoneNumber($number, string $region = 'RU'): bool {
+    public static function isValidPhoneNumber($number, string $defaultRegion = null): bool {
 
         // giggsey/libphonenumber-for-php
         $phoneUtil = PhoneNumberUtil::getInstance();
 
         try {
-            $russianNumberProto = $phoneUtil->parse( $number, $region );
-            return $phoneUtil->isValidNumber($russianNumberProto);
+            $numberProto = $phoneUtil->parse( $number, $defaultRegion );
+            return $phoneUtil->isValidNumber($numberProto);
         } catch ( NumberParseException $e ) {
             return false;
         }
