@@ -13,8 +13,8 @@ class PhoneHelper {
         $phoneUtil = PhoneNumberUtil::getInstance();
 
         try {
-            $numberProto = $phoneUtil->parse( $number, $defaultRegion );
-            return $phoneUtil->isValidNumber($numberProto);
+            $number = $phoneUtil->parse( $number, $defaultRegion );
+            return $phoneUtil->isValidNumber($number);
         } catch ( NumberParseException $e ) {
             return false;
         }
